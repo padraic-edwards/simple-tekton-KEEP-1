@@ -13,7 +13,7 @@ spec:
               fieldPath: metadata.annotations['devops.cloud.ibm.com/build-number']
       command: ["bash", "-c"]
       args:
-        - echo $BUILD_NUMBER;   
+        - echo $BUILD_NUMBER;  
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Task
@@ -21,8 +21,8 @@ metadata:
   name: echo-props
 spec:
   params:
-    - name: environment_value
-      description: Value from pipeline, trigger, or run property    
+    - name: env
+      description: env value
   steps:
     - name: show-props
       image: ubuntu
@@ -32,10 +32,10 @@ spec:
         - name: BUILD_NUMBER
           valueFrom:
             fieldRef:
-              fieldPath: metadata.annotations['devops.cloud.ibm.com/build-number']  
+              fieldPath: metadata.annotations['devops.cloud.ibm.com/build-number']
       command: ["/bin/bash", "-c"]
       args:
-        - echo -e "The \033[36menvironment\033[0m value from properties is >>";
+        - echo -e "The \033[36menvironment\033[0m value is >>";
           echo $ENV
           sleep 30
           echo "$BUILD_NUMBER Complete";
