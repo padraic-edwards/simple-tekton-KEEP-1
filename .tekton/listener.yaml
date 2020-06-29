@@ -20,10 +20,8 @@ metadata:
   name: echo-pipeline-template
 spec:
   params:
-    - name: quote
-      description: Quoted property
-    - name: noquote
-      description: UnQuoted property
+    - name: env
+      description: Env property
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
@@ -36,9 +34,5 @@ spec:
         pipelineRef:
           name: echo-props-pipeline
         params:
-          - name: quote
-            value: $(params.quote)
-          - name: noquote
-            value: $(params.noquote)
-          - name: environment_value
-            value: $(params.environment)  
+          - name: env
+            value: $(params.env)  
