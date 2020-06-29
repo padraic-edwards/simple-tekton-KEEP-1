@@ -14,7 +14,7 @@ spec:
       command: ["/bin/bash", "-c"]
       args:
         - echo -e "Start Pipeline Run";
-          echo "Build #" $BUILD_NUMBER;
+          echo "Build " $BUILD_NUMBER;
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Task
