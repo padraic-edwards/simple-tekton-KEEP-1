@@ -27,12 +27,3 @@ spec:
           value: $(params.noquote)
         - name: environment_value
           value: $(params.environment_value)
-    - name: cm-echo-task
-      taskRef:
-        name: cm-echo-props
-    - name: env-echo-task
-      taskRef: 
-        name: cm-all-props
-    - name: cm-secrets-all-props
-      taskRef:
-          name: cm-secrets-props       
