@@ -26,7 +26,7 @@ spec:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
-        generateName: echo-pipeline-run-
+        generateName: consumption-monitor-run-
         labels:
           triggertemplated: "true"
           generatedBy: "echo-example"
