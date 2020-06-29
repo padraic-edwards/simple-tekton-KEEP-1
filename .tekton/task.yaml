@@ -13,7 +13,7 @@ spec:
               fieldPath: metadata.annotations['devops.cloud.ibm.com/build-number']
       command: ["bash", "-c"]
       args:
-        - echo $BUILD_NUMBER;  
+        - echo "Build: $BUILD_NUMBER";  
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Task
@@ -35,7 +35,6 @@ spec:
               fieldPath: metadata.annotations['devops.cloud.ibm.com/build-number']
       command: ["/bin/bash", "-c"]
       args:
-        - echo -e "The \033[36menvironment\033[0m value is >>";
-          echo $ENV
+        - echo -e "The \033[36menvironment\033[0m value is >> **$ENV**"
           sleep 30
-          echo "$BUILD_NUMBER Complete";
+          echo "Build #$BUILD_NUMBER Complete";
