@@ -11,9 +11,9 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.annotations['devops.cloud.ibm.com/build-number']
-      command: ["bash", "-c"]
+      command: ["/bin/bash", "-c"]
       args:
-        - echo -e "Build: $BUILD_NUMBER";  
+        - echo -e "Build: $BUILD_NUMBER ";  
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Task
