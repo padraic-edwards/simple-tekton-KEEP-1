@@ -3,19 +3,7 @@ kind: Pipeline
 metadata:
   name: echo-props-pipeline
 spec:
-  params:
-    - name: test
-      description: simple test property
-      default: TEST
-    - name: env
-      description: env property
   tasks:
-    - name: show-build-number
+    - name: simple-tekton-pipeline
       taskRef:
         name: simple-task
-    - name: echo-task
-      taskRef:
-        name: echo-props
-      params:
-        - name: env
-          value: $(params.env)
