@@ -1,9 +1,21 @@
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: sample-pipeline
+  name: echo-props-pipeline
 spec:
+  params:
+    - name: test
+      description: simple test property
+      default: TEST
+    - name: env
+      description: env property
   tasks:
-    - name: task1
+    - name: show-build-number
       taskRef:
-        name: task1
+        name: simple-task
+    - name: echo-task
+      taskRef:
+        name: echo-props
+      params:
+        - name: env
+          value: $(params.env)
