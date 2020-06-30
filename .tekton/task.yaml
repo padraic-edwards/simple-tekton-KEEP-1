@@ -13,7 +13,7 @@ spec:
         valueFrom:
           configMapKeyRef:
             name: environment-properties
-            key: environment 
+            key: env
   steps:
     - name: simple-step
       image: ubuntu
