@@ -19,9 +19,6 @@ kind: TriggerTemplate
 metadata:
   name: echo-pipeline-template
 spec:
-  params:
-    - name: env
-      description: Env property
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
@@ -33,6 +30,3 @@ spec:
       spec:
         pipelineRef:
           name: echo-props-pipeline
-        params:
-          - name: env
-            value: $(params.env)  
