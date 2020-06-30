@@ -5,9 +5,8 @@ metadata:
 spec:
   stepTemplate:
     envFrom:
-      - configMapKeyRef:
+      - configMapRef:
           name: environment-properties
-          key: environment
     env:
       - name: BUILD_NUMBER
         valueFrom:
