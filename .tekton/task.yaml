@@ -24,6 +24,6 @@ spec:
       image: ubuntu
       command: ["/bin/bash", "-c"]
       args:
-        - echo -e "The \033[36menvironment\033[0m for this Step is \033[34m$ENVIRONMENT\033[0m or $ENV or $environment or $env";
+        - echo -e "The \033[36menvironment\033[0m for this Step is \033[34m$ENVIRONMENT-PROPERTIES\033[0m or $ENVIRONMENT or $environment-properties";
           sleep 30;
           echo "Build $BUILD_NUMBER Complete";
