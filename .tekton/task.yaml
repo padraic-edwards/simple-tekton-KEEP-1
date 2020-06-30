@@ -14,7 +14,6 @@ spec:
       image: ubuntu
       command: ["/bin/bash", "-c"]
       args:
-        - echo -e "Start Pipeline Run";
-          echo Build $BUILD_NUMBER;
+        - echo -e "Start Pipeline Run - Build $BUILD_NUMBER;
           sleep 30;
           echo "Build $BUILD_NUMBER Complete";
