@@ -15,27 +15,20 @@ spec:
       args:
         - echo -e "Start Pipeline Run";
           echo Build $BUILD_NUMBER;
----
-apiVersion: tekton.dev/v1beta1
-kind: Task
-metadata:
-  name: echo-props
-spec:
-  params:
-    - name: env
-      description: env value
-  steps:
     - name: show-props
       image: ubuntu
       env:
-        - name: ENV
-          value: $(params.env)  
         - name: BUILD_NUMBER
           valueFrom:
             fieldRef:
               fieldPath: metadata.annotations['devops.cloud.ibm.com/build-number']
+        - name: ENV
+          valueFrom:
+            configMapKeyRef:
+              name: environment-properties
+              key: env
       command: ["/bin/bash", "-c"]
       args:
-        - echo -e "The \033[36menvironment\033[0m value is >> \033[34m$ENV\033[0m";
+        - echo -e "The \033[36menvironment\033[0m for this Step is \033[34m$ENV\033[0m";
           sleep 30;
           echo "Build $BUILD_NUMBER Complete";
