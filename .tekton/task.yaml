@@ -4,7 +4,6 @@ metadata:
   name: simple-task
 spec:
   stepTemplate:
-    stepTemplate:
     envFrom:
       - configMapRef:
           name: environment-properties
