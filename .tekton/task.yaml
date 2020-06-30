@@ -4,14 +4,16 @@ metadata:
   name: simple-task
 spec:
   stepTemplate:
-    envFrom:
-      - configMapRef:
-          name: environment-properties
     env:
       - name: BUILD_NUMBER
         valueFrom:
           fieldRef:
             fieldPath: metadata.annotations['devops.cloud.ibm.com/build-number']
+      - name: ENVIRONMENT
+        valueFrom:
+          configMapKeyRef:
+            name: environment-properties
+            key: environment 
   steps:
     - name: simple-step
       image: ubuntu
