@@ -17,3 +17,15 @@ spec:
         - echo -e "Start Pipeline Run - Build $BUILD_NUMBER";
           sleep 30;
           echo "Build $BUILD_NUMBER Complete";
+          cat /cd-config/toolchain.json
+          
+      volumeMounts:
+        - mountPath: /cd-config
+          name: cd-config-volume
+  volumes:
+    - name: cd-config-volume
+      configMap:
+        name: toolchain
+        items:
+        - key: toolchain.json
+          path: toolchain.json
